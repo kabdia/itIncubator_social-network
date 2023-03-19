@@ -1,0 +1,13 @@
+
+   .content__main{
+    display:flex;
+  }
+ 
+  .main__infofmation{
+    width:40%;
+    background-color: white;  
+    border-radius: 20px;
+  }
+  
+
+  

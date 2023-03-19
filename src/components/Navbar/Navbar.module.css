@@ -1,0 +1,31 @@
+.nav {
+    grid-area:nav;
+    margin:10px;
+    margin-left:25px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: left;
+    grid-auto-rows: minmax(0,auto);
+    height:400px;
+    }
+    .item{      
+      padding:10px; 
+    }
+    .item:hover{
+      background-color: rgb(254, 253, 253);
+      border-radius: 10px;
+      
+    }
+    .a_style{
+      text-decoration: none;
+      color:black; 
+      margin-left:10px; 
+      display:flex;
+      align-items: center;
+    }
+    .img_style{
+      width:25px;
+      margin-right:10px;
+    }
+    

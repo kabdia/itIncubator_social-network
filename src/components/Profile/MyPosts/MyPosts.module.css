@@ -1,0 +1,36 @@
+
+.main__post_list{
+  width:60%;  
+  
+}
+.post_list__add_item{
+  width:100%;
+  height:auto;
+  background-color: white;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  gap: 30px;
+  align-items: start;
+}
+
+.post_list__add_item {
+  padding:30px;
+}
+.post_list__add_item_input_style{
+  border:none;
+  min-width:530px;
+  padding:20px;
+}
+.post_list__add_item_button{
+  width:100px;
+  height:40px;
+  background-color:rgb(107, 107, 168);
+  border:none;
+  border-radius: 5px;
+  color:white;
+  font-weight: bold;
+}

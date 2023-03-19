@@ -1,0 +1,38 @@
+.content__infoProfile {
+    background-color: white;
+    border-radius: 20px;
+    position:relative;
+    }
+    .photo__background_style {
+    width:100%;
+    height:250px;
+    object-fit: cover;
+    border-radius: 20px;
+    }
+    .photo__profile{
+    position: absolute;
+    top:150px;
+    left:30px;
+    border:4px solid white;
+    border-radius: 50%;
+    width:200px;
+    margin:5px;  
+    }
+  
+    .photo__info{
+    width:100%; 
+    height:100px;     
+    }
+    .photo__description{
+    margin:20px;
+    margin-left:250px;  
+    }
+  
+    .description__name{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .description__quote{
+    margin-top:10px;
+    color:rgb(101, 99, 99);
+  }

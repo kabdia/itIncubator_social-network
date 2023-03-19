@@ -1,0 +1,26 @@
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+.app-wrapper{
+  display:grid;  
+  width:100%;
+  grid-template-areas:
+  "header header"
+  "nav content";
+  grid-template-columns: 300px auto;
+  background-color: rgb(236, 232, 232);
+  grid-auto-rows: minmax(100px auto);
+}
+
+.app-wrapper-content {
+  grid-area:content;    
+    margin:10px;
+    border-radius: 20px;
+    height:auto;
+    width:95%;
+}
+
+
