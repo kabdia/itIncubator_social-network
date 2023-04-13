@@ -28,6 +28,9 @@ const Navbar = () => {
       <div className={classes.item}>        
         <NavLink to="#" className={classes.a_style}><img className={classes.img_style} src="https://cdn-icons-png.flaticon.com/512/763/763687.png"/>Настройки</NavLink>
       </div>
+      <div className={classes.item}>        
+        <NavLink to="/users" className={classes.a_style}>Поиск друзей</NavLink>
+      </div>
     </nav>
 );
 }

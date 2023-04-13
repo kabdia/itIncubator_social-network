@@ -6,17 +6,16 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
     debugger
-    let dialogsElement = props.messagesPage.dialogs.map(d => (<DialogsItem name ={d.name} id={d.id}/>))
-    let messagesElements = props.messagesPage.messages.map(m => (<Message message={m.message}/>));
-    let newMessage = React.createRef();
-    let sendMessage = () => {
-        let message = newMessage.current.value;
-        props.addMessage(message);
+    let dialogsElement = props.messagePage.dialogs.map(d => (<DialogsItem name ={d.name} key={d.id} id={d.id}/>))
+    let messagesElements = props.messagePage.messages.map(m => (<Message message={m.message} key={m.id}/>));
+    
+    let sendMessage = () => {        
+        props.sendNewMessage();
     }
     
-    let onMessageChange = () => {
-        let text = newMessage.current.value;
-        props.updateNewMessageText(text);
+    let onMessageChange = (event) => {
+        let text = event.target.value;
+        props.updateMessageChange(text);
     }
     
     return (
@@ -27,7 +26,10 @@ const Dialogs = (props) => {
             <div className={style.messages}>
                 {messagesElements}               
                 <div>                    
-                <textarea onChange={onMessageChange} value ={props.messagesPage.newMessageText} ref ={newMessage}/>
+                <textarea 
+                    onChange={onMessageChange} 
+                    placeholder='Введи сообщение' 
+                    value ={props.messagePage.newMessageText} />
                 </div>
                 <div>
                 <button onClick={sendMessage}>Отправить сообщение</button>
