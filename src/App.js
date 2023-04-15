@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 const App = (props) => {    
@@ -18,7 +19,7 @@ const App = (props) => {
     
     <Routes>    
        
-    <Route path="/profile" element = {<Profile />} />
+    <Route path="/profile" element = {<ProfileContainer/>} />
     <Route path="/dialogs/*" element = {<DialogsContainer />} />  
     <Route path="/users" element = {<UsersContainer />} />
       
