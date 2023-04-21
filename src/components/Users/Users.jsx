@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Users.module.css'
 import img from './../../assets/images/user.png'
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 
 let Users = (props) => {
@@ -38,10 +39,21 @@ return <div className={style.usersList}>
                         <div>u.location.country</div>
                     </div>
                     <div className={style.item_addFriendButton}> 
-                        {
-                            u.followed ? <button className={style.item_addFriendButton_style} onClick={()=>{props.unfollow(u.id)}}>Подписаться</button>:
-                                         <button className={style.item_addFriendButton_style} onClick={()=>{props.follow(u.id)}}>Отписаться</button>
-                        }                                              
+                        {   u.followed ? 
+                            <button className={style.item_addFriendButton_style} onClick={() =>{
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{withCredentials:true, headers:{'API-KEY':'92690937-6791-452a-8eb3-fd7d2775152c'}}).then(responce => {
+                                    if (responce.data.resultCode === 0) {
+                                    props.unfollow(u.id)
+                                     }
+                        })}}>Отписаться</button>:
+                        <button className={style.item_addFriendButton_style} onClick={() =>{
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {withCredentials:true, headers:{'API-KEY':'92690937-6791-452a-8eb3-fd7d2775152c'}}).then(responce => {
+                                    if (responce.data.resultCode === 0) {
+                                    props.follow(u.id)
+                                    }
+                        })}}>Подписаться</button>
+                        
+                    }                                              
                         </div>
                     
                 </div> 

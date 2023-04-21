@@ -1,20 +1,35 @@
 .header{
     grid-area:header;
     background-color: white;
-    }
+    
+}
+.header__container {
+  display:flex; 
+  justify-content: space-between;  
+}
+  
     .header__logo {
       display:flex;
       align-items: center;        
       margin:20px 40px;
+      
     }
-    .logo__name{
+    .header__logo_name{
       margin-left: 10px;
       text-align: center;
       font:  bold 25px /1.2em "Arial", serif;
-      color:black;
-      
-    
+          
     }
-    img{
+    .header__logo_img{
     width:40px;
+    }
+
+    .header__login{
+      align-self: center;
+      padding-right:50px;
+    }
+    .header__login_link{
+      text-decoration: none;
+      color:black
+      
     }
