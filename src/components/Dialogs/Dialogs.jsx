@@ -2,22 +2,31 @@ import React from 'react';
 import style from './Dialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
+import { Navigate } from "react-router-dom";
+import { useForm } from 'react-hook-form';
 
 
 const Dialogs = (props) => {
-    debugger
+    
     let dialogsElement = props.messagePage.dialogs.map(d => (<DialogsItem name ={d.name} key={d.id} id={d.id}/>))
     let messagesElements = props.messagePage.messages.map(m => (<Message message={m.message} key={m.id}/>));
     
-    let sendMessage = () => {        
-        props.sendNewMessage();
+    const {
+        register,
+        formState:{
+            errors,
+            isValid
+        },
+        handleSubmit,        
+    }=useForm({
+        mode:'onBlur',        
+    });
+
+    let addNewMessage = (values) => {        
+        props.sendNewMessage(values.message)
     }
-    
-    let onMessageChange = (event) => {
-        let text = event.target.value;
-        props.updateMessageChange(text);
-    }
-    
+
+    if (!props.isAuth) return <Navigate to={"/login"}/>
     return (
         <div className={style.dialogs}>
             <div className={style.dialogItems}>
@@ -25,15 +34,17 @@ const Dialogs = (props) => {
             </div>
             <div className={style.messages}>
                 {messagesElements}               
-                <div>                    
-                <textarea 
-                    onChange={onMessageChange} 
+                 
+                <form onSubmit={handleSubmit(addNewMessage)}>
+                 <div>
+                 <textarea {...register('message')}                
                     placeholder='Введи сообщение' 
                     value ={props.messagePage.newMessageText} />
-                </div>
+                </div>   
                 <div>
-                <button onClick={sendMessage}>Отправить сообщение</button>
+                <input type="submit" />
                 </div>
+                </form>                    
             </div>
         </div>
     )

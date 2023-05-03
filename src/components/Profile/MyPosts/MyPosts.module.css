@@ -25,6 +25,11 @@
   min-width:530px;
   padding:20px;
 }
+.post_list__add_item_input_style_error{
+  border: 3px solid red;
+  min-width:530px;
+  padding:20px;
+}
 .post_list__add_item_button{
   width:100px;
   height:40px;

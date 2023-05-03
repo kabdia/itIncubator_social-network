@@ -1,0 +1,9 @@
+.inputBorder{
+    border:1px solid blue
+}
+.inputBorder_error{
+    border:3px solid red;
+}
+.form__color_errorMessage {
+    color:red
+}

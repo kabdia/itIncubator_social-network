@@ -1,7 +1,9 @@
 import React from 'react';
-import {addPost, onPostChange} from './../../../redux/profile-reducer';
+import {addPostToWall} from './../../../redux/profile-reducer';
 import MyPosts from './MyPosts';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withAuthComponent } from '../../hoc/withAuthRedurect';
 
  const mapStateToProps = (state) => {
    return {
@@ -10,8 +12,13 @@ import { connect } from 'react-redux';
    }
  }
 
-
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    addPost:(post) => {
+      dispatch(addPostToWall(post))
+    }
+  }
+}
       
-const MyPostsContainer = connect(mapStateToProps,{addPost,onPostChange})(MyPosts)
 
-export default MyPostsContainer;
+export default compose(connect(mapStateToProps,mapDispatchToProps),withAuthComponent)(MyPosts)
