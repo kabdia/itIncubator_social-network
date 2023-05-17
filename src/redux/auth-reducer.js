@@ -1,5 +1,5 @@
 import { authAPI } from './../components/api/api';
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'samurai-network/auth/SET_USER_DATA';
 
 
 let initialState = {
@@ -23,29 +23,28 @@ const authReducer = (state = initialState,action) => {
 
 export const setUserData = (userId,email,login,isAuth) => ({type:SET_USER_DATA, data:{userId,email,login, isAuth}})
 
-export const getAuthUserData = () =>(dispatch) => {
-    authAPI.me().then(responce => {
+export const getAuthUserData = () => async(dispatch) => {
+   let responce=await authAPI.me()
       if (responce.data.resultCode === 0) {
       let {userId,email,login} = responce.data.data;
       dispatch(setUserData(userId,email,login,true))
     }
-    })
+    
   }
 
-  export const login = (email,password,rememberMe) =>(dispatch) => {
-    authAPI.login(email,password,rememberMe).then(responce => {
+  export const login = (email,password,rememberMe) => async(dispatch) => {
+    let responce=await authAPI.login(email,password,rememberMe);
       if (responce.data.resultCode === 0) {
       dispatch(getAuthUserData())
-    }
-    })
+    }    
   }
 
-  export const logout = () =>(dispatch) => {
-    authAPI.logout().then(responce => {
+  export const logout = () => async(dispatch) => {
+    let responce=await authAPI.logout();    
       if (responce.data.resultCode === 0) {
       dispatch(setUserData(null,null,null,false))
     }
-    })
+    
   }
 
 

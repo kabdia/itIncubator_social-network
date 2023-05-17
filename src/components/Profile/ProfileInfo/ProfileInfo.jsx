@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloarer';
 import img from './../../../assets/images/user.png';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
-const ProfileInfo = (props) => {
+const ProfileInfo = memo((props) => {
   if (!props.profile){
     return <Preloader/>
   }
@@ -19,12 +19,12 @@ const ProfileInfo = (props) => {
     <div className={classes.photo__description}>
       
      <p className={classes.description__name}>{props.profile.fullName}</p>
-    <p className={classes.description__quote}><ProfileStatus status={props.status} updateStatus={props.updateStatus}/></p>
+    <p className={classes.description__quote}><ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/></p>
     </div>
    </div>
    </div>
     );
     
-}
+})
 
-export default ProfileInfo;
+export default memo(ProfileInfo);

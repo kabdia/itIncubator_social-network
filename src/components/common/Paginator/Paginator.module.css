@@ -1,0 +1,26 @@
+.usersList {
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+.usersList__pagination {
+    display:flex;
+    
+}
+.pagination__items{
+    display: flex;
+    list-style-type:none;
+    margin:5px;
+    flex-wrap: wrap;
+}
+.items__item{
+    margin:5px
+}
+.items__block{
+    margin:3px;
+}
+.items__selected{
+    font-weight: bold;
+    color:red;
+    
+}

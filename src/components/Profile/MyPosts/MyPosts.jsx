@@ -2,11 +2,12 @@ import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import { useForm } from 'react-hook-form';
+import { memo } from 'react';
 
 
 
-const MyPosts = (props) => {
-
+const MyPosts = memo((props) => {
+ console.log('render')
   let posts = props.posts.map(p => (<Post message={p.message} likesCount={p.likesCount} id ={p.id}/>))
   
   
@@ -40,6 +41,6 @@ const MyPosts = (props) => {
       {posts}
     </div>
   )  
-}
+})
 
-export default MyPosts;
+export default memo(MyPosts);
